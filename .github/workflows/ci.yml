@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    services:
+      postgis:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: varsling_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5432/varsling_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Unit and integration tests (PostGIS, migration on an empty database)
+        run: pnpm test
+      - name: OpenAPI client is up to date
+        run: |
+          pnpm api-client:generate
+          git diff --exit-code packages/api-client
+      - name: Build
+        run: pnpm --filter @varsling/api --filter @varsling/web build
+      - name: Dependency audit
+        run: pnpm audit --prod --audit-level high
+
+  e2e-web:
+    runs-on: ubuntu-latest
+    needs: checks
+    services:
+      postgis:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: varsling
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      E2E_DATABASE_URL: postgres://postgres:postgres@localhost:5432/varsling
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @varsling/web build
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:4100
+      - run: pnpm --filter @varsling/web exec playwright install --with-deps chromium
+      - run: pnpm --filter @varsling/web test:e2e
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,22 @@
+# Example Fly.io deployment in Stockholm (EU). Copy to fly.toml and set secrets with `fly secrets set`.
+app = "varslingsapp-api"
+primary_region = "arn"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[deploy]
+  release_command = "node dist/migrate-cli.js"
+
+[processes]
+  server = "node dist/server.js"
+  worker = "node dist/worker.js"
+
+[http_service]
+  processes = ["server"]
+  internal_port = 4000
+  force_https = true
+  [[http_service.checks]]
+    path = "/v1/health"
+    interval = "15s"
+    timeout = "5s"
