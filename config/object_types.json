@@ -1,0 +1,22 @@
+[
+  { "key": "private_home", "sort": 1, "category": "building", "icon": "home", "i18n": { "nb": "Privat bolig", "en": "Private home" },
+    "defaults": ["wind", "precipitation", "snow", "flood", "landslide", "ice", "lightning"] },
+  { "key": "holiday_home", "sort": 2, "category": "building", "icon": "cabin", "i18n": { "nb": "Fritidsbolig", "en": "Holiday home" },
+    "defaults": ["wind", "precipitation", "snow", "flood", "landslide", "ice", "lightning", "forest_fire"] },
+  { "key": "boat", "sort": 3, "category": "boat", "icon": "boat", "i18n": { "nb": "Fritidsbåt", "en": "Leisure boat" },
+    "defaults": ["wind", "storm_surge", "ice", "lightning"] },
+  { "key": "pier", "sort": 4, "category": "pier", "icon": "pier", "i18n": { "nb": "Brygge", "en": "Pier" },
+    "defaults": ["wind", "storm_surge", "flood", "ice"] },
+  { "key": "building", "sort": 5, "category": "building", "icon": "building", "i18n": { "nb": "Bygning", "en": "Building" },
+    "defaults": ["wind", "precipitation", "snow", "flood", "landslide", "ice"] },
+  { "key": "caravan", "sort": 6, "category": "mobile", "icon": "caravan", "i18n": { "nb": "Campingvogn", "en": "Caravan" },
+    "defaults": ["wind", "precipitation", "snow", "flood", "lightning"] },
+  { "key": "tent", "sort": 7, "category": "mobile", "icon": "tent", "i18n": { "nb": "Telt/lavvo", "en": "Tent/lavvo" },
+    "defaults": ["wind", "precipitation", "snow", "flood", "lightning"] },
+  { "key": "tarp_garage", "sort": 8, "category": "other", "icon": "garage", "i18n": { "nb": "Presenningsgarasje", "en": "Tarp garage" },
+    "defaults": ["wind", "precipitation", "snow"] },
+  { "key": "smallholding", "sort": 9, "category": "building", "icon": "farm", "i18n": { "nb": "Småbruk", "en": "Smallholding" },
+    "defaults": ["wind", "precipitation", "snow", "flood", "landslide", "ice", "lightning", "forest_fire"] },
+  { "key": "other", "sort": 10, "category": "other", "icon": "other", "i18n": { "nb": "Annet", "en": "Other" },
+    "defaults": [] }
+]

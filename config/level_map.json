@@ -1,0 +1,9 @@
+{
+  "_comment": "Maps the issuer's colour level to the app level (D2, D3). A future ORANGE app level is a change in this file plus the alert_level enum. null = no warning (all-clear or green).",
+  "rows": [
+    { "source": "*", "source_level": "green", "level": null },
+    { "source": "*", "source_level": "yellow", "level": "yellow" },
+    { "source": "*", "source_level": "orange", "level": "red" },
+    { "source": "*", "source_level": "red", "level": "red" }
+  ]
+}

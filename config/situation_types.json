@@ -1,0 +1,14 @@
+[
+  { "key": "wind", "sort": 1, "available": true, "i18n": { "nb": "Vindstyrke", "en": "Wind" } },
+  { "key": "precipitation", "sort": 2, "available": true, "i18n": { "nb": "Store nedbørsmengder", "en": "Heavy precipitation" } },
+  { "key": "snow", "sort": 3, "available": true, "i18n": { "nb": "Snø og snøfokk", "en": "Snow and blowing snow" } },
+  { "key": "flood", "sort": 4, "available": true, "i18n": { "nb": "Flomfare", "en": "Flood" } },
+  { "key": "landslide", "sort": 5, "available": true, "i18n": { "nb": "Rasfare", "en": "Landslide" } },
+  { "key": "storm_surge", "sort": 6, "available": true, "i18n": { "nb": "Stormflo", "en": "Storm surge" } },
+  { "key": "ice", "sort": 7, "available": true, "i18n": { "nb": "Is og ising", "en": "Ice and icing" } },
+  { "key": "lightning", "sort": 8, "available": true, "i18n": { "nb": "Torden", "en": "Lightning" } },
+  { "key": "forest_fire", "sort": 9, "available": true, "i18n": { "nb": "Skogbrannfare", "en": "Forest fire" } },
+  { "key": "wave_height", "sort": 10, "available": false, "i18n": { "nb": "Bølgehøyde", "en": "Wave height" } },
+  { "key": "thaw", "sort": 11, "available": false, "i18n": { "nb": "Væromslag til mildvær", "en": "Change to mild weather" } },
+  { "key": "frost", "sort": 12, "available": false, "i18n": { "nb": "Væromslag til frost", "en": "Change to frost" } }
+]

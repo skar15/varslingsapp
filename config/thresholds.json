@@ -1,0 +1,6 @@
+{
+  "_comment": "Forecast trigger values for M6 (D5). Only wind green/yellow are implied by the slides. All other values must be supplied by the product owner before M6; null means not defined and the rule is inactive.",
+  "rows": [
+    { "situation": "wind", "parameter": "wind_speed_ms", "green": 15, "yellow": 20, "red": null }
+  ]
+}

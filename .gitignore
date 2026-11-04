@@ -22,3 +22,17 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Monorepo
+.turbo
+.next
+.expo
+coverage
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+apps/mobile/android
+apps/mobile/ios
+test-results
+playwright-report

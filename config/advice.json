@@ -1,0 +1,25 @@
+{
+  "_comment": "PROPOSED advice texts shown on the alert detail, chosen by situation and optionally object status or object type category. To be reviewed by the product owner. Most specific match wins (status, then category, then situation only).",
+  "rows": [
+    { "key": "wind.loose_items", "situation": "wind", "status": "loose_items", "category": null,
+      "i18n": { "nb": "Sikre eller flytt inn løse gjenstander som kan blåse bort.", "en": "Secure or move indoors loose items that can blow away." } },
+    { "key": "wind.exterior_work", "situation": "wind", "status": "exterior_work", "category": null,
+      "i18n": { "nb": "Sikre stillas, presenninger og byggematerialer på fasade og tak.", "en": "Secure scaffolding, tarpaulins and building materials on facade and roof." } },
+    { "key": "precipitation.exterior_work", "situation": "precipitation", "status": "exterior_work", "category": null,
+      "i18n": { "nb": "Dekk til åpne tak- og fasadeflater.", "en": "Cover open roof and facade surfaces." } },
+    { "key": "wind.moored", "situation": "wind", "status": "moored", "category": null,
+      "i18n": { "nb": "Kontroller fortøyninger, fendere og kalesje.", "en": "Check mooring lines, fenders and canopy." } },
+    { "key": "storm_surge.moored", "situation": "storm_surge", "status": "moored", "category": null,
+      "i18n": { "nb": "Kontroller at fortøyningene tåler høy vannstand.", "en": "Check that mooring lines allow for high water levels." } },
+    { "key": "precipitation.digging", "situation": "precipitation", "status": "digging", "category": null,
+      "i18n": { "nb": "Sørg for drenering av byggegrop og sikre åpne grøfter.", "en": "Make sure the excavation is drained and open trenches are secured." } },
+    { "key": "wind.boat", "situation": "wind", "status": null, "category": "boat",
+      "i18n": { "nb": "Kontroller fortøyninger og fjern løst utstyr fra båten.", "en": "Check mooring lines and remove loose equipment from the boat." } },
+    { "key": "wind.building", "situation": "wind", "status": null, "category": "building",
+      "i18n": { "nb": "Sikre utemøbler, trampoliner og andre løse gjenstander.", "en": "Secure garden furniture, trampolines and other loose items." } },
+    { "key": "flood.building", "situation": "flood", "status": null, "category": "building",
+      "i18n": { "nb": "Flytt verdier opp fra kjeller og sjekk at sluk og stikkrenner er åpne.", "en": "Move valuables out of the basement and check that drains and culverts are open." } },
+    { "key": "snow.building", "situation": "snow", "status": null, "category": "building",
+      "i18n": { "nb": "Følg med på snølasten på taket.", "en": "Keep an eye on the snow load on the roof." } }
+  ]
+}

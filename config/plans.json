@@ -1,0 +1,8 @@
+{
+  "_comment": "PLACEHOLDER plans (D11). Names, limits and caps are to be supplied by the product owner. Prices live only in Stripe; stripe_price_id is read from env STRIPE_PRICE_ID_<KEY uppercased> by the seed.",
+  "rows": [
+    { "key": "basis", "sort": 1, "i18n": { "nb": "Basis", "en": "Basic" }, "max_users": 2, "max_objects": 3, "sms_monthly_cap": 20 },
+    { "key": "familie", "sort": 2, "i18n": { "nb": "Familie", "en": "Family" }, "max_users": 5, "max_objects": 10, "sms_monthly_cap": 60 },
+    { "key": "bedrift", "sort": 3, "i18n": { "nb": "Bedrift", "en": "Business" }, "max_users": 25, "max_objects": 100, "sms_monthly_cap": 400 }
+  ]
+}

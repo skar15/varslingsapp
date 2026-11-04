@@ -1,0 +1,19 @@
+[
+  { "key": "normal", "sort": 1, "i18n": { "nb": "Normal", "en": "Normal" }, "adds": [], "removes": [], "applies_to": null },
+  { "key": "digging", "sort": 2, "i18n": { "nb": "Gravearbeider pågår", "en": "Excavation in progress" },
+    "adds": ["precipitation", "flood", "landslide"], "removes": [], "applies_to": null },
+  { "key": "exterior_work", "sort": 3, "i18n": { "nb": "Utvendig arbeid på fasade og tak", "en": "Exterior work on facade and roof" },
+    "adds": ["wind", "precipitation"], "removes": [], "applies_to": ["private_home", "holiday_home", "building", "smallholding"] },
+  { "key": "loose_items", "sort": 4, "i18n": { "nb": "Løse gjenstander", "en": "Loose items" },
+    "adds": ["wind"], "removes": [], "applies_to": null },
+  { "key": "unattended", "sort": 5, "i18n": { "nb": "Objekt uten tilsyn", "en": "Unattended" },
+    "adds": ["wind", "snow", "flood", "ice"], "removes": [], "applies_to": null },
+  { "key": "flood_prone", "sort": 6, "i18n": { "nb": "Flomutsatt", "en": "Flood prone" },
+    "adds": ["flood", "precipitation"], "removes": [], "applies_to": null },
+  { "key": "landslide_prone", "sort": 7, "i18n": { "nb": "Rasutsatt", "en": "Landslide prone" },
+    "adds": ["landslide", "precipitation"], "removes": [], "applies_to": null },
+  { "key": "moored", "sort": 8, "i18n": { "nb": "Ligger i fortøyning", "en": "Moored" },
+    "adds": ["wind", "storm_surge"], "removes": [], "applies_to": ["boat", "pier"] },
+  { "key": "stored_indoors", "sort": 9, "i18n": { "nb": "Lagret innomhus", "en": "Stored indoors" },
+    "adds": [], "removes": ["wind", "precipitation", "snow", "ice", "lightning"], "applies_to": ["caravan", "tent"] }
+]

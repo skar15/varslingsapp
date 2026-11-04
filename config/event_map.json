@@ -1,0 +1,19 @@
+{
+  "_comment": "Maps source event (CAP eventCode eventType) to an app situation type. Events missing here are stored with situation_key null and never notified.",
+  "rows": [
+    { "source": "met", "event": "wind", "situation": "wind" },
+    { "source": "met", "event": "gale", "situation": "wind" },
+    { "source": "met", "event": "polarLow", "situation": "wind" },
+    { "source": "met", "event": "rain", "situation": "precipitation" },
+    { "source": "met", "event": "snow", "situation": "snow" },
+    { "source": "met", "event": "blowingSnow", "situation": "snow" },
+    { "source": "met", "event": "rainFlood", "situation": "flood" },
+    { "source": "met", "event": "ice", "situation": "ice" },
+    { "source": "met", "event": "icing", "situation": "ice" },
+    { "source": "met", "event": "lightning", "situation": "lightning" },
+    { "source": "met", "event": "stormSurge", "situation": "storm_surge" },
+    { "source": "met", "event": "forestFire", "situation": "forest_fire" },
+    { "source": "nve-flood", "event": "flood", "situation": "flood" },
+    { "source": "nve-landslide", "event": "landslide", "situation": "landslide" }
+  ]
+}

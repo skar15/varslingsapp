@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>2.49.0.1.578.0.20261105080000.013</identifier>
+  <sender>noreply@met.no</sender>
+  <sent>2026-11-05T08:00:00+00:00</sent>
+  <status>Actual</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  
+  <info>
+    <language>no</language>
+    <category>Met</category>
+    <event>Snøskredfare</event>
+    <responseType>Monitor</responseType>
+    <urgency>Future</urgency>
+    <severity>Severe</severity>
+    <certainty>Likely</certainty>
+    <eventCode><valueName>eventType</valueName><value>avalanches</value></eventCode>
+    <onset>2026-11-05T12:00:00+00:00</onset>
+    <expires>2026-11-06T00:00:00+00:00</expires>
+    <senderName>Meteorologisk Institutt</senderName>
+    <headline>Snøskredfare, oransje nivå, Sør-Troms</headline>
+    <description>Snøskredfare ventes i Sør-Troms.</description>
+    <instruction>Følg med på oppdaterte varsler.</instruction>
+    <web>https://www.met.no/vaer-og-klima/ekstremvaervarsler-og-andre-farevarsler</web>
+    <parameter><valueName>awareness_level</valueName><value>3; orange; Severe</value></parameter>
+    <area><areaDesc>Sør-Troms</areaDesc><polygon>68.5,16.6 68.5,17.4 68.9,17.4 68.9,16.6 68.5,16.6</polygon></area>
+  </info>
+  <info>
+    <language>en-GB</language>
+    <category>Met</category>
+    <event>Snøskredfare</event>
+    <responseType>Monitor</responseType>
+    <urgency>Future</urgency>
+    <severity>Severe</severity>
+    <certainty>Likely</certainty>
+    <eventCode><valueName>eventType</valueName><value>avalanches</value></eventCode>
+    <onset>2026-11-05T12:00:00+00:00</onset>
+    <expires>2026-11-06T00:00:00+00:00</expires>
+    <senderName>MET Norway</senderName>
+    <headline>Snøskredfare, oransje nivå, Sør-Troms</headline>
+    <description>Snøskredfare ventes i Sør-Troms.</description>
+    <instruction>Følg med på oppdaterte varsler.</instruction>
+    <web>https://www.met.no/vaer-og-klima/ekstremvaervarsler-og-andre-farevarsler</web>
+    <parameter><valueName>awareness_level</valueName><value>3; orange; Severe</value></parameter>
+    <area><areaDesc>Sør-Troms</areaDesc><polygon>68.5,16.6 68.5,17.4 68.9,17.4 68.9,16.6 68.5,16.6</polygon></area>
+  </info>
+</alert>

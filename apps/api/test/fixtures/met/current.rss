@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>MetAlerts</title>
+    <link>https://api.met.no/weatherapi/metalerts/2.0/current.rss</link>
+    <item>
+      <title>Kraftige vindkast</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.001</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.001</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Storm</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.002</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.002</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Mye regn</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.003</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.003</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Regnflom</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.004</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.004</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Snø</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.005</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.005</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Snøfokk</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.006</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.006</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Glatte veier</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.007</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.007</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Ising</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.008</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.008</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Torden</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.009</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.009</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Stormflo</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.010</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.010</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Polart lavtrykk</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.011</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.011</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Skogbrannfare</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.012</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.012</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Snøskredfare</title>
+      <link>https://api.met.no/weatherapi/metalerts/2.0/current?cap=2.49.0.1.578.0.20261105080000.013</link>
+      <guid isPermaLink="false">2.49.0.1.578.0.20261105080000.013</guid>
+      <pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
