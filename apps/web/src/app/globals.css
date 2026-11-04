@@ -1,0 +1,70 @@
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #17202a;
+  --muted: #5b6673;
+  --border: #dde2e8;
+  --primary: #1d4ed8;
+  --primary-text: #ffffff;
+  --danger: #b42318;
+  --light-none: #ffffff;
+  --light-green: #2e9e4f;
+  --light-yellow: #f2c200;
+  --light-red: #d92d20;
+  --radius: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1418;
+    --surface: #182027;
+    --text: #e8edf2;
+    --muted: #9aa6b2;
+    --border: #2b3640;
+    --primary: #5b8cff;
+    --light-none: #e8edf2;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: var(--primary); }
+main { max-width: 1040px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 1.6rem; margin: 0.5rem 0 1rem; }
+h2 { font-size: 1.2rem; margin: 1.25rem 0 0.5rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.btn { appearance: none; border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 8px; padding: 8px 14px; font: inherit; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.4; cursor: not-allowed; }
+.btn-primary { background: var(--primary); color: var(--primary-text); border-color: var(--primary); }
+.btn-danger { color: var(--danger); border-color: var(--danger); }
+input, select, textarea { font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); width: 100%; }
+label { display: flex; flex-direction: column; gap: 4px; font-weight: 500; }
+label.check { flex-direction: row; align-items: center; font-weight: 400; }
+label.check input { width: auto; }
+.error { color: var(--danger); }
+.banner { border-radius: 8px; padding: 8px 12px; background: #fff4e5; color: #7a4100; border: 1px solid #f5c27a; }
+.banner-info { background: #eaf1ff; color: #123a8a; border-color: #b9cdfa; }
+nav.top { background: var(--surface); border-bottom: 1px solid var(--border); }
+nav.top .inner { max-width: 1040px; margin: 0 auto; padding: 8px 16px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+nav.top a { text-decoration: none; color: var(--text); }
+nav.top a[aria-current="page"] { font-weight: 700; }
+.light { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+.light .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; color: #111; }
+.light-none .dot { background: var(--light-none); }
+.light-green .dot { background: var(--light-green); color: #fff; }
+.light-yellow .dot { background: var(--light-yellow); }
+.light-red .dot { background: var(--light-red); color: #fff; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); }
+.tabs button { border: none; background: none; padding: 8px 12px; cursor: pointer; font: inherit; color: var(--muted); border-bottom: 2px solid transparent; }
+.tabs button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--primary); }
+.map { height: 360px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; }
+td, th { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.8rem; border: 1px solid var(--border); }
+.plans { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.footer { color: var(--muted); font-size: 0.85rem; padding: 24px 16px; text-align: center; }
+@media (max-width: 480px) { h1 { font-size: 1.35rem; } }
