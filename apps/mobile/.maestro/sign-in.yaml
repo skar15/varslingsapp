@@ -1,0 +1,22 @@
+# Maestro smoke flow (run against a development build with a seeded test account):
+#   MAESTRO_EMAIL=... MAESTRO_PASSWORD=... maestro test .maestro
+appId: no.varslingsapp.app
+---
+- launchApp:
+    clearState: true
+- assertVisible: "Kontoer opprettes på nettsiden."
+- assertNotVisible: "Velg plan"
+- tapOn: "Med e-post"
+- tapOn:
+    id: "email"
+- inputText: ${MAESTRO_EMAIL}
+- tapOn:
+    id: "password"
+- inputText: ${MAESTRO_PASSWORD}
+- tapOn:
+    id: "sign-in"
+- assertVisible: "Tillat varsler"
+- tapOn:
+    id: "allow-notifications"
+- assertVisible:
+    id: "add-object"

@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Varslingsapp",
+    "slug": "varslingsapp",
+    "scheme": "varsling",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "bundleIdentifier": "no.varslingsapp.app",
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": ["remote-notification"],
+        "NSLocationWhenInUseUsageDescription": "Brukes bare når du trykker «Bruk min posisjon» for å plassere et objekt. Posisjonen lagres ikke.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "entitlements": {
+        "com.apple.developer.usernotifications.time-sensitive": true
+      }
+    },
+    "android": {
+      "package": "no.varslingsapp.app",
+      "permissions": ["POST_NOTIFICATIONS", "ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
+      "blockedPermissions": ["ACCESS_BACKGROUND_LOCATION"]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      ["expo-notifications", { "color": "#1d4ed8" }],
+      ["expo-location", { "locationWhenInUsePermission": "Brukes bare når du trykker «Bruk min posisjon» for å plassere et objekt. Posisjonen lagres ikke.", "isAndroidBackgroundLocationEnabled": false, "isIosBackgroundLocationEnabled": false }],
+      "@maplibre/maplibre-react-native"
+    ],
+    "experiments": { "typedRoutes": false },
+    "extra": {
+      "apiUrl": "http://localhost:4000",
+      "supabaseUrl": "",
+      "supabaseAnonKey": "",
+      "eas": { "projectId": "" }
+    }
+  }
+}
