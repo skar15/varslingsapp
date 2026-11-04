@@ -1,4 +1,4 @@
-import { t, type Locale, type schemas } from '@varsling/shared';
+import { t, toGsm7, type Locale, type schemas } from '@varsling/shared';
 import type { z } from 'zod';
 import type { Ctx } from '../context';
 import { many, one, withTx, type Db } from '../db/client';
@@ -153,7 +153,7 @@ export async function invite(ctx: Ctx, actor: Actor, input: z.infer<typeof schem
   if (input.channel === 'email') {
     await ctx.providers.email.send({ to: input.email, subject: t(owner?.locale ?? 'nb', 'msg.invitation.subject'), text });
   } else {
-    await sendSmsWithCap(ctx, { accountId: actor.accountId, to: input.phone_e164, body: text, red: false });
+    await sendSmsWithCap(ctx, { accountId: actor.accountId, to: input.phone_e164, body: toGsm7(text), red: false });
   }
   return { id, expires_at: expires.toISOString() };
 }

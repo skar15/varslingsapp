@@ -1,4 +1,4 @@
-import { formatDateTime, t, type Locale } from '@varsling/shared';
+import { formatDateTime, t, toGsm7, truncate, type Locale } from '@varsling/shared';
 import type { Ctx } from '../context';
 import { many } from '../db/client';
 import type { InfoParam, InfoPush } from '../jobs/types';
@@ -34,7 +34,7 @@ export async function deliverInfo(ctx: Ctx, info: InfoPush): Promise<void> {
       );
       await disableUnregistered(ctx, u.tokens, tickets);
     } else if (info.smsFallback && u.phone_e164 && u.phone_verified_at) {
-      await sendSmsWithCap(ctx, { accountId: u.account_id, to: u.phone_e164, body: body.slice(0, 160), red: false });
+      await sendSmsWithCap(ctx, { accountId: u.account_id, to: u.phone_e164, body: truncate(toGsm7(body), 160), red: false });
     }
   }
 }
