@@ -61,7 +61,7 @@ const OBJECT_SELECT = `
                      'expires', a.expires, 'title_nb', a.title_nb, 'title_en', a.title_en) order by a.level desc, a.onset nulls first)
                    from alerts a
                    where o.geom is not null and a.superseded_by is null and a.level is not null
-                     and a.expires > $2 and (a.onset is null or a.onset <= $2 + make_interval(hours => $3))
+                     and a.expires > $2::timestamptz and (a.onset is null or a.onset <= $2::timestamptz + make_interval(hours => $3::int))
                      and st_intersects(a.geom, o.geom)), '[]'::json) as active_alerts
   from objects o left join users su on su.id = o.status_set_by`;
 

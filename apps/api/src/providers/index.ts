@@ -20,19 +20,31 @@ export function createProviders(env: Env, log: Logger): Providers {
 
   let sms;
   if (env.TWILIO_ACCOUNT_SID && env.TWILIO_AUTH_TOKEN) sms = new TwilioSmsProvider(env.TWILIO_ACCOUNT_SID, env.TWILIO_AUTH_TOKEN, env.SMS_SENDER_ID ?? 'Varsling');
-  else (warnFake('sms'), (sms = new FakeSmsProvider()));
+  else {
+    warnFake('sms');
+    sms = new FakeSmsProvider();
+  }
 
   let payment;
   if (env.STRIPE_SECRET_KEY && env.STRIPE_WEBHOOK_SECRET) payment = new StripePaymentProvider(env.STRIPE_SECRET_KEY, env.STRIPE_WEBHOOK_SECRET);
-  else (warnFake('payment'), (payment = new FakePaymentProvider()));
+  else {
+    warnFake('payment');
+    payment = new FakePaymentProvider();
+  }
 
   let email;
   if (env.RESEND_API_KEY && env.EMAIL_FROM) email = new ResendEmailProvider(env.RESEND_API_KEY, env.EMAIL_FROM);
-  else (warnFake('email'), (email = new FakeEmailProvider()));
+  else {
+    warnFake('email');
+    email = new FakeEmailProvider();
+  }
 
   let authAdmin;
   if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) authAdmin = new SupabaseAuthAdmin(env.SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
-  else (warnFake('auth-admin'), (authAdmin = new FakeAuthAdmin()));
+  else {
+    warnFake('auth-admin');
+    authAdmin = new FakeAuthAdmin();
+  }
 
   const authVerifier = new SupabaseJwtVerifier({ supabaseUrl: env.SUPABASE_URL, jwtSecret: env.SUPABASE_JWT_SECRET ?? (env.SUPABASE_URL ? undefined : 'dev-only-jwt-secret') });
 

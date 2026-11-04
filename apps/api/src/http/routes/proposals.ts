@@ -17,12 +17,12 @@ export async function proposalRoutes(app: FastifyInstance, ctx: Ctx) {
   r.post('/proposals', { schema: { tags: ['proposals'], body: schemas.ProposalCreate, response: { 201: z.object({ id: schemas.Id }) } }, preHandler: auth },
     async (req, reply) => reply.code(201).send({ id: await createProposal(ctx, req.actor!, req.body) }));
 
-  r.post('/proposals/:id/approve', { schema: { tags: ['proposals'], params: IdParams, body: schemas.ProposalDecision.optional() }, preHandler: auth }, async (req, reply) => {
+  r.post('/proposals/:id/approve', { schema: { tags: ['proposals'], params: IdParams, body: schemas.ProposalDecision.nullish() }, preHandler: auth }, async (req, reply) => {
     await approveProposal(ctx, req.actor!, req.params.id, req.body?.note);
     return reply.code(204).send();
   });
 
-  r.post('/proposals/:id/reject', { schema: { tags: ['proposals'], params: IdParams, body: schemas.ProposalDecision.optional() }, preHandler: auth }, async (req, reply) => {
+  r.post('/proposals/:id/reject', { schema: { tags: ['proposals'], params: IdParams, body: schemas.ProposalDecision.nullish() }, preHandler: auth }, async (req, reply) => {
     await rejectProposal(ctx, req.actor!, req.params.id, req.body?.note);
     return reply.code(204).send();
   });

@@ -24,7 +24,8 @@ export function registerErrorHandler(app: FastifyInstance) {
       return reply.code(err.statusCode).type(PROBLEM).send({ type: 'about:blank', title: err.message, status: err.statusCode, code: err.code ?? 'error' });
     }
     req.log.error({ err }, 'unhandled error');
-    return reply.code(500).type(PROBLEM).send({ type: 'about:blank', title: 'Internal Server Error', status: 500, code: 'internal' });
+    const debug = ['development', 'test'].includes(process.env.APP_ENV ?? '') ? { detail: err.message } : {};
+    return reply.code(500).type(PROBLEM).send({ type: 'about:blank', title: 'Internal Server Error', status: 500, code: 'internal', ...debug });
   });
   app.setNotFoundHandler((_req, reply) => reply.code(404).type(PROBLEM).send({ type: 'about:blank', title: 'Not Found', status: 404, code: 'not_found' }));
 }

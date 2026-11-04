@@ -63,7 +63,7 @@ export async function listAlerts(ctx: Ctx, actor: Actor, q: z.infer<typeof schem
     ctx.pool,
     `select a.*, array_agg(o.id order by o.id) as object_ids
      from alerts a join objects o on o.account_id = $1 and o.deleted_at is null and o.geom is not null and st_intersects(a.geom, o.geom)
-     where a.superseded_by is null and a.level is not null and a.expires > $2 - make_interval(days => $3) ${cursorSql}
+     where a.superseded_by is null and a.level is not null and a.expires > $2::timestamptz - make_interval(days => $3::int) ${cursorSql}
        ${q.object_id ? `and o.id = $${params.length}` : ''}
      group by a.id order by a.sent_at desc, a.id desc limit $4`,
     params,
