@@ -14,6 +14,8 @@ docs/          specification, decision records, runbooks
 
 ## Getting started
 
+Requires Node.js 22.15 or newer (`nvm use` reads `.nvmrc`) and pnpm 10 (`corepack enable`).
+
 ```bash
 pnpm install
 cp .env.example .env
