@@ -48,7 +48,12 @@ export const EnvSchema = z.object({
 export type Env = z.infer<typeof EnvSchema>;
 
 export function loadEnv(source: Record<string, string | undefined> = process.env): Env {
-  const env = EnvSchema.parse(source);
+  // `.env.example` ships empty placeholders (e.g. `CLAIM_TOKEN_SECRET=`). Treat empty or
+  // whitespace-only values as unset so the schema defaults apply instead of failing validation.
+  const withoutBlanks = Object.fromEntries(
+    Object.entries(source).filter(([, v]) => typeof v !== 'string' || v.trim() !== ''),
+  );
+  const env = EnvSchema.parse(withoutBlanks);
   if (env.APP_ENV === 'production') {
     const required = ['SUPABASE_URL', 'STRIPE_SECRET_KEY', 'STRIPE_WEBHOOK_SECRET', 'MET_USER_AGENT', 'TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN'] as const;
     const missing = required.filter((k) => !env[k]);
