@@ -1,11 +1,14 @@
 services:
   db:
     image: postgis/postgis:16-3.4
+    # The image is published for amd64 only; Apple Silicon runs it through emulation.
+    platform: linux/amd64
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: varsling
-    ports: ["5432:5432"]
+    # Host port; set DB_PORT in .env if 5432 is taken by another PostgreSQL.
+    ports: ["${DB_PORT:-5432}:5432"]
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./docker/initdb:/docker-entrypoint-initdb.d:ro
