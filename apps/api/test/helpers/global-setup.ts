@@ -12,7 +12,16 @@ export default async function setup(project: TestProject) {
   let stop: (() => Promise<unknown>) | undefined;
   if (!url) {
     const { PostgreSqlContainer } = await import('@testcontainers/postgresql');
-    const container = await new PostgreSqlContainer('postgis/postgis:16-3.4').start();
+    let container;
+    try {
+      container = await new PostgreSqlContainer('postgis/postgis:16-3.4').start();
+    } catch (err) {
+      throw new Error(
+        'The API tests need PostGIS. Either start Docker (Docker Desktop, OrbStack or Colima) so Testcontainers can run it, ' +
+          'or run `docker compose up -d db` and set TEST_DATABASE_URL=postgres://postgres:postgres@localhost:5432/varsling_test ' +
+          `(never your development database: the tests wipe it). Cause: ${(err as Error).message}`,
+      );
+    }
     url = container.getConnectionUri();
     stop = () => container.stop();
   }

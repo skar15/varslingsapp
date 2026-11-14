@@ -219,7 +219,7 @@ describe('M1: registration and billing', () => {
     let acc = (await call(a, owner).get('/v1/account')).json();
     expect([acc.status, acc.alerts_paused]).toEqual(['past_due', false]);
     expect(infoBodies()[0]).toContain('Betalingen for Varslingsapp feilet');
-    await ctx.pool.query("update accounts set past_due_since = now() - interval '8 days'");
+    await ctx.pool.query("update accounts set past_due_since = $1::timestamptz - interval '8 days'", [ctx.now()]);
     expect((await call(a, owner).get('/v1/account')).json().alerts_paused).toBe(true);
     await hook({ id: 'evt_p', type: 'invoice.paid', subscriptionId: subId });
     acc = (await call(a, owner).get('/v1/account')).json();

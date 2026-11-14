@@ -44,9 +44,9 @@ export async function matchObjects(ctx: Ctx, alertId: string): Promise<Candidate
      join accounts acc on acc.id = o.account_id
      where o.deleted_at is null
        and o.location_kind <> 'none'
-       and ${alertsActiveSql('acc', '$2')}
+       and ${alertsActiveSql('acc', '$2', '$3')}
        and st_intersects(o.geom, (select geom from alerts where id = $1))`,
-    [alertId, ctx.env.PAST_DUE_GRACE_DAYS],
+    [alertId, ctx.env.PAST_DUE_GRACE_DAYS, ctx.now()],
   );
 }
 

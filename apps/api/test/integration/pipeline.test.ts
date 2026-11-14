@@ -233,10 +233,10 @@ describe('acceptance A1–A7, A13', () => {
   it('alerts pause for past_due beyond the grace period, and resume within it', async () => {
     const { owner } = await createAccount(ctx);
     const id = await createObject(ctx, actorFor(owner), { type_key: 'boat', location: { kind: 'point', geometry: { type: 'Point', coordinates: PLACES.bjornvika } } });
-    await ctx.pool.query("update accounts set status = 'past_due', past_due_since = now() - interval '8 days'");
+    await ctx.pool.query("update accounts set status = 'past_due', past_due_since = $1::timestamptz - interval '8 days'", [ctx.now()]);
     await ingestXml(ctx, 'met', metCap({ eventType: 'wind', colour: 'yellow', polygon: GROVFJORD }).xml);
     expect(await notificationsFor(id)).toHaveLength(0);
-    await ctx.pool.query("update accounts set past_due_since = now() - interval '2 days'");
+    await ctx.pool.query("update accounts set past_due_since = $1::timestamptz - interval '2 days'", [ctx.now()]);
     await ingestXml(ctx, 'met', metCap({ eventType: 'wind', colour: 'yellow', polygon: GROVFJORD }).xml);
     expect(await notificationsFor(id)).toHaveLength(1);
   });

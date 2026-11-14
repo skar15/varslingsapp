@@ -28,9 +28,12 @@ export interface PlanRow {
   stripe_price_id: string | null;
 }
 
-/** SQL predicate: alerts are delivered for this account (past_due pauses after the grace period). */
-export function alertsActiveSql(alias: string, graceParam: string): string {
-  return `(${alias}.status = 'active' or (${alias}.status = 'past_due' and ${alias}.past_due_since > now() - make_interval(days => ${graceParam})))`;
+/**
+ * SQL predicate: alerts are delivered for this account (past_due pauses after the grace period).
+ * Takes the current time as a parameter so it agrees with alertsPaused() (same clock).
+ */
+export function alertsActiveSql(alias: string, graceParam: string, nowParam: string): string {
+  return `(${alias}.status = 'active' or (${alias}.status = 'past_due' and ${alias}.past_due_since > ${nowParam}::timestamptz - make_interval(days => ${graceParam}::int)))`;
 }
 
 export function alertsPaused(account: Pick<AccountRow, 'status' | 'past_due_since'>, env: Env, now: Date): boolean {
