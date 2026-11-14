@@ -9,6 +9,7 @@
     "start": "next start -p 3000",
     "lint": "eslint src e2e",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:e2e": "NEXT_PUBLIC_API_URL=http://localhost:4100 next build",
     "test:e2e": "playwright test"
   },
   "dependencies": {

@@ -10,6 +10,8 @@
     "typecheck": "turbo run typecheck",
     "test": "turbo run test --concurrency=1",
     "test:e2e": "turbo run test:e2e",
+    "test:e2e:setup": "pnpm --filter @varsling/web exec playwright install chromium",
+    "test:e2e:mobile": "pnpm --filter @varsling/mobile test:e2e:mobile",
     "db:migrate": "pnpm --filter @varsling/api db:migrate",
     "db:seed": "pnpm --filter @varsling/api db:seed",
     "api-client:generate": "pnpm --filter @varsling/api openapi:dump && pnpm --filter @varsling/api-client generate"

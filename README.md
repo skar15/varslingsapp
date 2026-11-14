@@ -38,9 +38,29 @@ curl -X POST localhost:4000/v1/admin/simulate-alert -H "x-admin-key: $ADMIN_API_
 ```bash
 pnpm lint && pnpm typecheck
 pnpm test          # unit + integration against real PostGIS (TEST_DATABASE_URL, or Testcontainers when unset)
-pnpm test:e2e      # Playwright (web); Maestro flows in apps/mobile/.maestro
 pnpm api-client:generate   # after changing API schemas
-eas build --profile development    # in apps/mobile
+```
+
+### Web end-to-end tests (Playwright)
+
+```bash
+pnpm test:e2e:setup          # once: downloads Chromium for Playwright
+docker compose up -d db      # the database must be running
+pnpm test:e2e                # builds the web app, starts the API (:4100) and web (:3100), runs the tests
+```
+
+`pnpm test:e2e` runs only the web tests. It reads `DATABASE_URL` from the repo-root `.env` (so a custom `DB_PORT` such as 5433 works as long as `DATABASE_URL` uses it); `E2E_DATABASE_URL` overrides it. Do not point it at a database you care about: the e2e API migrates and seeds it.
+
+### Mobile end-to-end flow (Maestro)
+
+Not part of `pnpm test:e2e`. It needs:
+
+- the [Maestro CLI](https://maestro.mobile.dev) installed,
+- a development build (`eas build --profile development`, or `pnpm --filter @varsling/mobile ios` / `android`) installed on a running device or emulator,
+- a seeded test account, passed as `MAESTRO_EMAIL` and `MAESTRO_PASSWORD`.
+
+```bash
+MAESTRO_EMAIL=you@example.com MAESTRO_PASSWORD=... pnpm test:e2e:mobile
 ```
 
 ## Status

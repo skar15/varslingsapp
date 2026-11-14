@@ -3,10 +3,16 @@
   "globalEnv": ["APP_ENV", "DATABASE_URL", "TEST_DATABASE_URL"],
   "tasks": {
     "build": { "dependsOn": ["^build"], "outputs": ["dist/**", ".next/**", "!.next/cache/**"] },
+    "build:e2e": { "dependsOn": ["^build"], "outputs": [".next/**", "!.next/cache/**"] },
     "dev": { "cache": false, "persistent": true },
     "lint": {},
     "typecheck": { "dependsOn": ["^typecheck"] },
     "test": { "cache": false },
-    "test:e2e": { "cache": false }
+    "test:e2e": {
+      "dependsOn": ["build:e2e"],
+      "cache": false,
+      "env": ["E2E_DATABASE_URL", "PW_CHROMIUM_PATH", "PLAYWRIGHT_BROWSERS_PATH"]
+    },
+    "test:e2e:mobile": { "cache": false }
   }
 }

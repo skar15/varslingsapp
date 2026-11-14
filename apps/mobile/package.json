@@ -9,7 +9,7 @@
     "ios": "expo run:ios",
     "lint": "eslint app src",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test:e2e": "maestro test .maestro"
+    "test:e2e:mobile": "maestro test .maestro"
   },
   "dependencies": {
     "@maplibre/maplibre-react-native": "^11.5.1",

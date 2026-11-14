@@ -1,5 +1,5 @@
 # Maestro smoke flow (run against a development build with a seeded test account):
-#   MAESTRO_EMAIL=... MAESTRO_PASSWORD=... maestro test .maestro
+#   MAESTRO_EMAIL=... MAESTRO_PASSWORD=... maestro test .maestro   (or `pnpm test:e2e:mobile` from the repo root)
 appId: no.varslingsapp.app
 ---
 - launchApp:

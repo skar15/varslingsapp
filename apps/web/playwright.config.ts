@@ -1,7 +1,24 @@
+import { readFileSync } from 'node:fs';
+import { parseEnv } from 'node:util';
 import { defineConfig, devices } from '@playwright/test';
 
+/** Values from the repo-root .env, if there is one. Only read, never copied wholesale into process.env. */
+function rootEnv(): Record<string, string | undefined> {
+  try {
+    return parseEnv(readFileSync(new URL('../../.env', import.meta.url), 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
 const executablePath = process.env.PW_CHROMIUM_PATH || undefined;
-const dbUrl = process.env.E2E_DATABASE_URL ?? process.env.DATABASE_URL ?? 'postgres://postgres:postgres@localhost:5432/varsling';
+// Precedence: E2E_DATABASE_URL, then DATABASE_URL from the environment, then from the root .env, then the default.
+// `||` skips empty strings, so blank placeholders (`DATABASE_URL=`) fall through to the next source.
+const dbUrl =
+  process.env.E2E_DATABASE_URL ||
+  process.env.DATABASE_URL ||
+  rootEnv().DATABASE_URL ||
+  'postgres://postgres:postgres@localhost:5432/varsling';
 
 /** Web e2e: runs the real API (dev entrypoint: migrate + seed + worker) and the built web app. */
 export default defineConfig({
